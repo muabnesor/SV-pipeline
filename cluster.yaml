@@ -1,0 +1,87 @@
+__default__:
+  account: "accout_name"
+  time: "00:30:00"
+  n: "1"
+  partition: "core"
+  output: "{params.slurm_log_dir}/{rule}.{wildcards}.out"
+  error: "{params.slurm_log_dir}/{rule}.{wildcards}.err"
+
+delly_call:
+  name: "{rule}.{wildcards.sample}"
+  n: "1"
+  time: "15:00:00"
+
+delly_merge:
+  name: "{rule}"
+  n: "1"
+  time: "05:00:00"
+
+delly_genotype:
+  name: "{rule}.{wildcards.sample}"
+  n: "1"
+  time: "24:00:00"
+
+bcftools_merge:
+  name: "{rule}"
+  n: "1"
+  time: "4:00:00"
+
+bcftools_index:
+  name: "{rule}"
+  n: "1"
+  time: "2:00:00"
+
+delly_filter:
+  name: "rule"
+  n: "1"
+  time: "02:00:00"
+
+bcf_to_vcf:
+  name: "{rule}"
+  n: "1"
+  time: "01:00:00"
+
+vep_annotate:
+  name: "{rule}"
+  n: "4"
+  time: "01:00:00"
+
+gnomad_delly:
+  name: "{rule}"
+  n: "4"
+  time: "05:00:00"
+
+delly_final_filter:
+  name: "{rule}"
+  n: "1"
+  time: "00:30:00"
+
+cnvnator:
+  name: "{rule}.{wildcards.sample}"
+  n: "2"
+  time: "8:00:00"
+
+filter_cnvnator_calls:
+  name: "{rule}.{wildcards.sample}"
+  n: "1"
+  time: "00:10:00"
+
+survivor_cnvnator:
+  name: "{rule}"
+  n: "1"
+  time: "00:30:00"
+
+vep_cnvnator:
+  name: "{rule}"
+  n: "4"
+  time: "01:00:00"
+
+gnomad_cnvnator:
+  name: "{rule}"
+  n: "4"
+  time: "05:00:00"
+
+cnvnator_final_filter:
+  name: "{rule}"
+  n: "1"
+  time: "00:30:00"

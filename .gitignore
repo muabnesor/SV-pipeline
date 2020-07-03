@@ -1,0 +1,16 @@
+*
+!config.yaml
+!cluster.yaml
+!.gitignore
+!README.md
+!CHANGELOG.md
+!Snakefile
+!scripts
+!scripts/*
+!report
+!report/*
+!rules
+!rules/*
+!VERSION
+!.bumpversion.cfg
+!slurm-status.py
